@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff; /* Blue color */
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #ffffff; /* White background */
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff; /* Blue color */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%; /* Full-width button */
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        #attendanceHistory {
+            margin-top: 40px;
+        }
+        #attendanceHistory table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        #attendanceHistory th, #attendanceHistory td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        #attendanceHistory th {
+            background-color: #007bff; /* Blue color */
+            color: white;
+        }
+        #notification {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda; /* Success green background */
+            color: #155724; /* Success green text */
+            border: 1px solid #c3e6cb; /* Success green border */
+            display: none; /* Hidden initially */
+        }
+        .logout-button {
+            margin-top: 20px;
+            background-color: #dc3545; /* Red for logout */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%; /* Full-width button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Attendance</h1>
+    <form id="attendanceForm">
+        <input type="text" id="studentName" placeholder="Name" required>
+        <input type="text" id="studentRollNumber" placeholder="Roll Number" required>
+        <select id="studentBranch" required>
+            <option value="ETRX">ETRX</option>
+            <option value="EXCS">EXCS</option>
+            <option value="CMPN">CMPN</option>
+            <option value="INFT">INFT</option>
+            <option value="BIOMED">BIOMED</option>
+            <option value="EXTC">EXTC</option>
+        </select>
+        <select id="studentDivision" required>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+        <button type="submit">Mark Attendance</button>
+    </form>
+
+    <!-- Notification Section -->
+    <div id="notification">Your attendance has been marked successfully!</div>
+
+    <!-- Logout Button -->
+    <button class="logout-button" id="logoutButton">Logout</button>
+
+    <div id="attendanceHistory">
+        <h2>Attendance History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="attendanceBody">
+                <!-- Attendance records will be injected here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="student.js"></script>
+</body>
+</html>
